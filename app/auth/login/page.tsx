@@ -1,22 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import LoginForm from "@/components/LoginForm";
 
 export default function Login() {
-  //   const [id, setId] = useState("");
-  //   const [pw, setPw] = useState("");
-  //   const [error, setError] = useState("");
-
-  //   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //     e.preventDefault();
-  //     if (id === "" || pw === "") {
-  //       setError("아이디와 비밀번호를 입력해주세요.");
-  //     }
-  //   };
-
   return (
     <div className="layout">
       <div className="content">
