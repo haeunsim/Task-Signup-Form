@@ -11,22 +11,33 @@ export interface User {
 
 // User 저장
 export const saveUser = (user: User) => {
-  localStorage.setItem("user", JSON.stringify(user));
+  const saved = localStorage.getItem("users");
+  const users: User[] = saved ? JSON.parse(saved) : [];
+
+  users.push(user);
+  localStorage.setItem("users", JSON.stringify(users));
   console.log("회원가입 완료");
   return true;
 };
 
 // 로그인
 export const login = (username: string, password: string) => {
-  const saved = localStorage.getItem("user");
+  const saved = localStorage.getItem("users");
   if (!saved) return false;
 
-  const user: User = JSON.parse(saved);
-  if (user.username === username && user.password === password) {
-    localStorage.setItem("currentUser", JSON.stringify(user));
+  const users: User[] = JSON.parse(saved);
+
+  const found = users.find(
+    (u) => u.username === username && u.password === password
+  );
+
+  if (found) {
+    localStorage.setItem("currentUser", JSON.stringify(found));
     console.log("로그인 완료");
     return true;
   }
+
+  console.log("아이디 또는 비밀번호가 일치하지 않습니다.");
   return false;
 };
 
