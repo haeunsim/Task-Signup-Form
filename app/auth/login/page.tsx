@@ -2,18 +2,36 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import LoginForm from "@/components/LoginForm";
 
 export default function Login() {
+  //   const [id, setId] = useState("");
+  //   const [pw, setPw] = useState("");
+  //   const [error, setError] = useState("");
+
+  //   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //     e.preventDefault();
+  //     if (id === "" || pw === "") {
+  //       setError("아이디와 비밀번호를 입력해주세요.");
+  //     }
+  //   };
+
   return (
     <div className="layout">
       <div className="content">
         <div className="layout-flex">
           <h2 className="text-2xl font-bold">로그인</h2>
-          <div className="text-sm text-gray-500">로그인 폼</div>
 
-          <Button variant="outline">
-            <Link href="/auth/signup">회원가입 이동</Link>
-          </Button>
+          <LoginForm />
+
+          <button className="btn-2">
+            <Link href="/auth/signup">회원가입</Link>
+          </button>
+
+          <h2 className="mt-5 text-xl font-bold">간편 로그인</h2>
+          <button className="btn-3">카카오 시작하기</button>
+          <button className="btn-3">Apple로 시작하기</button>
         </div>
       </div>
     </div>
